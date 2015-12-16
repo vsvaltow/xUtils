@@ -48,6 +48,11 @@ public class ViewUtils {
     public static void inject(Activity activity) {
         injectObject(activity, new ViewFinder(activity));
     }
+    
+    public static void inject(Fragment fragment) {  
+        injectObject(fragment, new ViewFinder(fragment));  
+    } 
+
 
     public static void inject(PreferenceActivity preferenceActivity) {
         injectObject(preferenceActivity, new ViewFinder(preferenceActivity));
