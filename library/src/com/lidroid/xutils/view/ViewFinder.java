@@ -37,7 +37,17 @@ public class ViewFinder {
     }
 
     public View findViewById(int id) {
-        return activity == null ? view.findViewById(id) : activity.findViewById(id);
+        // return activity == null ? view.findViewById(id) : activity.findViewById(id);
+        View v = null;  
+        if(activity != null) {  
+            v = activity.findViewById(id);  
+        } else if(this.fragment != null) {  
+            v = this.fragment.getView().findViewById(id);  
+        } else {  
+            v = view.findViewById(id);  
+        }  
+        return v;
+
     }
 
     public View findViewByInfo(ViewInjectInfo info) {
